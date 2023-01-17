@@ -1,5 +1,11 @@
-#!/bin/sh -l
+#!/bin/sh
 
-echo "Hello $1"
-time=$(date)
-echo "time=$time" >> $GITHUB_OUTPUT
+if [ -z "$INPUT_LOCUSTFILE" ]
+then
+    file="/locustfile.py"
+else
+    file="/github/workspace/$INPUT_LOCUSTFILE"
+fi
+
+
+locust -f $file --headless -u $INPUT_USERS -r $INPUT_RATE --run-time $INPUT_RUNTIME -H $INPUT_URL
