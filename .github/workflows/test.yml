@@ -12,7 +12,7 @@ jobs:
         uses: vipin-discovery/containerization-of-script@main
         with:
           LOCUSTFILE: "locustfile.py"
-          URL:  "https://gqa-pass.user.dev.rt.discoveryplus.com/login?flow=login"
+          URL:  "https://prod.playback.h264.io"
           USERS: "1"
           RATE: "1"
           RUNTIME: "10s"
